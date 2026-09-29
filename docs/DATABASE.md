@@ -1,11 +1,10 @@
 # Database setup
 
-Postgres via Drizzle ORM. Works with Neon or Supabase (or any standard Postgres connection string) — nothing here is provider-specific.
+Postgres (Neon) via Drizzle ORM, using Neon's HTTP driver (`@neondatabase/serverless`) rather than a raw TCP connection — this environment only allows outbound HTTPS, and Neon's HTTP driver tunnels queries over HTTPS instead of opening a TCP socket on port 5432. Swapping to a different Postgres host later (e.g. Supabase, or Neon over TCP) means switching `src/db/index.ts` and `src/db/migrate.ts` back to `drizzle-orm/node-postgres` with the `pg` driver.
 
 ## 1. Get a connection string
 
 - **Neon**: neon.tech → sign up → create a project → copy the connection string shown right after creation.
-- **Supabase**: supabase.com → sign up → create a project → Project Settings → Database → Connection string (URI tab; use the pooled connection if offered).
 
 ## 2. Configure
 
