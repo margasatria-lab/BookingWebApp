@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in · BookingWebApp</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="card">
+  <h1>Log in</h1>
+  <form action="/api/auth/login" method="post">
+    <label>Email <input name="email" type="email" autocomplete="email" required></label>
+    <label>Password <input name="password" type="password" autocomplete="current-password" minlength="1" required></label>
+    <p class="error" role="alert"></p>
+    <button type="submit">Log in</button>
+  </form>
+  <p class="alt">No account? <a href="/signup.html">Sign up</a></p>
+</main>
+<script src="/form.js"></script>
+</body>
+</html>

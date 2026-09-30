@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home · BookingWebApp</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="card">
+  <h1 id="title">Welcome</h1>
+  <p id="msg" class="alt">Loading…</p>
+  <button id="logout" hidden>Log out</button>
+</main>
+<script>
+(async () => {
+  const res = await fetch('/api/auth/me');
+  if (!res.ok) return (location.href = '/login.html');
+  const user = await res.json();
+  document.getElementById('title').textContent = `Hi, ${user.name}`;
+  document.getElementById('msg').textContent = `Signed in as ${user.email}`;
+  const btn = document.getElementById('logout');
+  btn.hidden = false;
+  btn.onclick = async () => { await fetch('/api/auth/logout', { method: 'POST' }); location.href = '/login.html'; };
+})();
+</script>
+</body>
+</html>
