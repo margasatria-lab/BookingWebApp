@@ -1,0 +1,14 @@
+# Render Blueprint: New > Blueprint, pick this repo.
+services:
+  - type: web
+    name: booking-web-app
+    runtime: docker
+    plan: starter        # persistent disks are not available on the free plan
+    healthCheckPath: /healthz
+    envVars:
+      - key: ADMIN_EMAILS
+        sync: false      # you enter this in the dashboard
+    disk:
+      name: booking-data
+      mountPath: /data
+      sizeGB: 1

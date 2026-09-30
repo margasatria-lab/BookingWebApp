@@ -6,6 +6,8 @@ const { adminRouter } = require('./admin');
 
 function createApp(db) {
   const app = express();
+  app.set('trust proxy', 1); // behind the host's HTTPS proxy
+  app.get('/healthz', (req, res) => res.json({ ok: db.prepare('SELECT 1 AS ok').get().ok === 1 }));
   app.use(express.json());
   app.use(cookieParser());
   app.use('/api/auth', authRouter(db));
