@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book · BookingWebApp</title>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/admin.css">
+<link rel="stylesheet" href="/book.css">
+</head>
+<body class="admin">
+<header>
+  <h1>Book a slot</h1>
+  <div class="who"><span id="who"></span> <a href="/">Home</a> · <button id="logout" class="link" type="button">Log out</button></div>
+</header>
+<p class="hint">All times are UTC.</p>
+<main>
+  <section class="panel">
+    <div class="row">
+      <label>Resource <select id="resource"></select></label>
+      <label>Date <input id="date" type="date"></label>
+    </div>
+    <p id="desc" class="hint"></p>
+    <div id="slots" class="slots" aria-live="polite"></div>
+    <p class="error" id="error" role="alert"></p>
+  </section>
+  <section class="panel">
+    <h2>My bookings</h2>
+    <ul id="mine" class="mine"></ul>
+  </section>
+</main>
+<script src="/book.js"></script>
+</body>
+</html>
