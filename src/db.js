@@ -10,6 +10,7 @@ function openDb(file = process.env.DB_FILE || 'booking.db') {
       email TEXT NOT NULL UNIQUE COLLATE NOCASE,
       name TEXT NOT NULL,
       password_hash TEXT NOT NULL,
+      is_admin INTEGER NOT NULL DEFAULT 0,
       created_at TEXT NOT NULL DEFAULT (datetime('now'))
     );
     CREATE TABLE IF NOT EXISTS sessions (
@@ -52,7 +53,21 @@ function openDb(file = process.env.DB_FILE || 'booking.db') {
       ON bookings(resource_id, starts_at) WHERE status = 'confirmed';
     CREATE INDEX IF NOT EXISTS idx_bookings_user ON bookings(user_id, starts_at);
   `);
+  // Databases created before the admin flag existed.
+  if (!db.prepare("SELECT 1 FROM pragma_table_info('users') WHERE name = 'is_admin'").get()) {
+    db.exec('ALTER TABLE users ADD COLUMN is_admin INTEGER NOT NULL DEFAULT 0');
+  }
   return db;
 }
 
-module.exports = { openDb };
+// Emails listed in ADMIN_EMAILS (comma-separated) are admins. This is how the first admin is made.
+function adminEmails() {
+  return (process.env.ADMIN_EMAILS || '').split(',').map((e) => e.trim().toLowerCase()).filter(Boolean);
+}
+
+function promoteAdmins(db) {
+  const set = db.prepare('UPDATE users SET is_admin = 1 WHERE email = ?');
+  for (const email of adminEmails()) set.run(email);
+}
+
+module.exports = { openDb, adminEmails, promoteAdmins };
