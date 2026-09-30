@@ -45,3 +45,15 @@ h3 {
 a {
   color: var(--color-info);
 }
+
+/* Auth screens */
+.auth-card { max-width: 400px; margin: 0 auto; padding: 48px 16px; display: flex; flex-direction: column; gap: 16px; }
+.auth-card form { display: flex; flex-direction: column; gap: 14px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 16px; padding: 24px; }
+.auth-card label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: var(--color-text-muted); }
+.auth-card input, .auth-card select { padding: 10px 12px; font: inherit; color: var(--color-text); background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 10px; }
+.auth-card input:focus-visible, .auth-card select:focus-visible, .auth-card button:focus-visible { outline: 2px solid var(--color-info); outline-offset: 2px; }
+.auth-card button { padding: 12px; font: inherit; font-weight: 700; color: #fff; background: var(--color-primary); border: 0; border-radius: 10px; cursor: pointer; }
+.auth-card button:hover { background: var(--color-primary-hover); }
+.auth-card button:disabled { opacity: .6; cursor: wait; }
+.form-error { min-height: 1.4em; margin: 0; font-size: 14px; color: var(--color-danger); }
+.auth-alt { margin: 0; text-align: center; font-size: 14px; color: var(--color-text-muted); }
