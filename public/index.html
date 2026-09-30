@@ -10,6 +10,7 @@
 <main class="card">
   <h1 id="title">Welcome</h1>
   <p id="msg" class="alt">Loading…</p>
+  <p id="admin" class="alt" hidden><a href="/admin.html">Manage resources</a></p>
   <button id="logout" hidden>Log out</button>
 </main>
 <script>
@@ -19,6 +20,7 @@
   const user = await res.json();
   document.getElementById('title').textContent = `Hi, ${user.name}`;
   document.getElementById('msg').textContent = `Signed in as ${user.email}`;
+  document.getElementById('admin').hidden = !user.is_admin;
   const btn = document.getElementById('logout');
   btn.hidden = false;
   btn.onclick = async () => { await fetch('/api/auth/logout', { method: 'POST' }); location.href = '/login.html'; };

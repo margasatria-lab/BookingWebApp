@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin · BookingWebApp</title>
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/admin.css">
+</head>
+<body class="admin">
+<header>
+  <h1>Resources</h1>
+  <div class="who"><span id="who"></span> <button id="logout" class="link" type="button">Log out</button></div>
+</header>
+<p class="hint">Opening hours are in UTC.</p>
+<main>
+  <section class="panel">
+    <h2>New resource</h2>
+    <form id="create" class="row">
+      <label>Name <input id="new-name" name="name" required></label>
+      <label>Description <input id="new-desc" name="description"></label>
+      <label>Slot length (min) <input id="new-slot" name="slot_minutes" type="number" min="5" max="1440" value="60" required></label>
+      <button type="submit">Add</button>
+    </form>
+    <p class="error" id="create-error" role="alert"></p>
+  </section>
+  <div id="list"></div>
+</main>
+<script src="/admin.js"></script>
+</body>
+</html>

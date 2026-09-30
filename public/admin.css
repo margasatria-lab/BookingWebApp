@@ -1,0 +1,24 @@
+body.admin { display:block; max-width:860px; margin:0 auto; padding:24px 16px; }
+header { display:flex; flex-wrap:wrap; gap:8px 16px; align-items:baseline; justify-content:space-between; }
+header h1 { margin:0; }
+.who { color:var(--muted); font-size:.9rem; }
+.hint { color:var(--muted); font-size:.9rem; margin:4px 0 20px; }
+.panel { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px; margin-bottom:16px; }
+.panel h2 { margin:0 0 12px; font-size:1.05rem; }
+.panel.inactive { opacity:.7; }
+.row { display:flex; flex-wrap:wrap; gap:12px; align-items:end; }
+.row label { flex:1 1 160px; margin:0; min-width:0; }
+.row button, .panel button { width:auto; padding:10px 16px; }
+button.secondary { background:transparent; color:var(--text); border:1px solid var(--border); }
+button.danger { background:transparent; color:var(--danger); border:1px solid var(--border); }
+button.link { width:auto; padding:0; background:none; color:var(--primary); font-weight:400; text-decoration:underline; }
+.actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; align-items:center; }
+.days { display:grid; gap:8px; margin-top:16px; }
+.day { display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; padding:8px 0; border-top:1px solid var(--border); }
+.day > strong { width:3.5rem; font-size:.9rem; }
+.range { display:flex; gap:6px; align-items:center; }
+.range input { width:auto; margin:0; padding:6px 8px; }
+.range button { padding:4px 8px; }
+.day .add { padding:4px 10px; }
+.badge { font-size:.75rem; color:var(--muted); border:1px solid var(--border); border-radius:99px; padding:1px 8px; margin-left:8px; }
+.status { color:var(--muted); font-size:.85rem; }
