@@ -1,0 +1,47 @@
+:root {
+  /* Palette from the UI/UX design doc — bright, friendly, accessible */
+  --color-bg: #f7f8fc;
+  --color-surface: #ffffff;
+  --color-text: #1a1d29;
+  --color-text-muted: #6b7280;
+
+  --color-primary: #ff6b4a; /* main CTAs */
+  --color-primary-hover: #e85a3b;
+  --color-success: #00c48c; /* confirmed / auto-approved */
+  --color-info: #5b5fef; /* admin / links */
+  --color-warning: #ffb020; /* pending approval */
+  --color-danger: #ff4d4f; /* cancelled / reject */
+  --color-highlight: #ffd166; /* badges, accents */
+
+  --color-border: #e5e7eb;
+
+  --font-heading: var(--font-poppins), Arial, sans-serif;
+  --font-body: var(--font-dm-sans), Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  margin: 0;
+}
+
+a {
+  color: var(--color-info);
+}
